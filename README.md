@@ -381,6 +381,7 @@ OGs Service Tool for Dji products.
 
 The script allows to trigger a few service functions of Dji drones. It talks to the drone
 like `comm_serialtalk.py`, but provides easier interface for some important functions.
+
 该脚本允许触发大疆无人机的几个服务功能。它可以和无人机对话
 类似于`comm_Serialtalk.py`，和为一些重要功能提供了更简单的接口。
 
@@ -397,11 +398,13 @@ Example of setting value of Flight Controller Parameters on Spark:
 ```./comm_og_service_tool.py /dev/ttyUSB0 -vv SPARK FlycParam set g_config.flying_limit.max_height_0 500```
 
 Example of performing service "joint coarse" calibration of Spark gimbal:
+
 执行服务的示例"joint coarse"标定Spark云台：
 
 ```./comm_og_service_tool.py /dev/ttyUSB0 -vv SPARK GimbalCalib JointCoarse```
 
 Example of performing service "linear hall" calibration of Spark gimbal, using Windows host:
+
 执行服务的示例"linear hall"标定Spark云台，用Windows主机：
 
 ```python3 comm_og_service_tool.py COM23 -vv SPARK GimbalCalib LinearHall```
