@@ -55,7 +55,9 @@ keys = {
     "RREK":  bytes([ # RR Encryption Key v1; published 2017-06-27 by Freek van Tienen
         0x37, 0xD6, 0xD9, 0x13, 0xE5, 0xD0, 0x80, 0x17, 0xE5, 0x12, 0x15, 0x45, 0x0C, 0x1E, 0x16, 0xE7
     ]),
-    "RIEK":  bytes([ # RI Encryption Key v1; published 2017-06-27 by Freek van Tienen
+    "RIEK":  bytes([ # R&D Image Encryption Key v1; published 2017-06-27 by Freek van Tienen
+        # This key is used on many platforms, for pre-production development and engineering images;
+        # it is used as pre-production version of IAEK key
         0xF1, 0x69, 0xC0, 0xF3, 0x8B, 0x2D, 0x9A, 0xDC, 0x65, 0xEE, 0x0C, 0x57, 0x83, 0x32, 0x94, 0xE9
     ]),
     "RUEK":  bytes([ # RU Encryption Key v1; published 2017-06-27 by Freek van Tienen
@@ -84,13 +86,51 @@ keys = {
     "TKIE":  bytes([ # TK Image Encryption key; published 2021-03-26 by Felix Domke
         0xb6, 0x28, 0x6a, 0x05, 0xfc, 0x3a, 0x02, 0xf0, 0x36, 0x51, 0x11, 0xf0, 0x20, 0x45, 0x03, 0xa3
     ]),
-    "TBIE":  bytes([ # Trusted Boot Image Encryption key; published 2021-03-26 by Felix Domke
+    "TBIE-2020-04":  bytes([ # Trusted Boot Image Encryption key; published 2021-06-25 by OGs
+        # first use on 2020-04-23; used for:
+        # RCS231 FW V01.00.0108-V02.00.1200,
+        # RC-N1-WM161B FW V04.11.0016,
+        # RCJS170 FW V01.01.0000,
+        # RCSS170 FW V01.01.0000,
+        0x48, 0xd6, 0xe8, 0xff, 0x1b, 0x7f, 0x20, 0x6e, 0x2d, 0xa7, 0x99, 0xc2, 0x7e, 0x5a, 0xd7, 0x0d
+    ]),
+    "TBIE-2019-11":  bytes([ # Trusted Boot Image Encryption key; published 2021-03-26 by Felix Domke
+        # first use on 2019-11-07; used for:
+        # WM160 FW V01.00.0200-V01.00.0500, WM161 FW V01.00.0000-V01.02.0300
         0x54, 0xb8, 0xb9, 0xd7, 0x4c, 0x2b, 0x41, 0x46, 0x9c, 0x4d, 0xac, 0x3d, 0x16, 0xcc, 0x6f, 0x47
+    ]),
+    "TBIE-2018-07":  bytes([ # Trusted Boot Image Encryption key; published 2021-06-23 by fpv.wtf team
+        # first use on 2018-07-13; used for:
+        # WM240 FW V00.06.0000-V01.00.0670,
+        # WM245 FW V01.01.0000-V01.01.0800,
+        # WM246 FW V01.00.0000-V01.01.0800,
+        # GL150 FW V01.00.0600, LT150 FW V01.00.0600,
+        0xff, 0x94, 0x76, 0xf7, 0x8a, 0x89, 0xb9, 0x44, 0x9b, 0x6a, 0x90, 0x55, 0x64, 0x13, 0xb9, 0xc3
+    ]),
+    "UFIE-2020-04":  bytes([ # UFI Encryption key; published 2021-06-20 by OGs
+        # first use on 2020-04-24; used for:
+        # WM170 FW V00.04.1009-V01.01.0000,
+        # GL170 FW V01.01.0000,
+        # WM231 FW V01.00.0113-V09.09.0902,
+        # WM232 FW V02.04.1640,
+        # PM430 FW, AG500 FW
+        0xba, 0xb3, 0xcd, 0x72, 0x36, 0xb2, 0xe1, 0xd8, 0x66, 0x49, 0x35, 0xc9, 0xc2, 0x58, 0x8f, 0x3c
     ]),
     "UFIE-2019-11":  bytes([ # Update Firmware Image Encryption key; published 2021-03-26 by Felix Domke
         # first use on 2019-11-07; used for:
         # WM160 FW V01.00.0200-V01.00.0500, WM161 FW V01.00.0000-V01.02.0300
         0xad, 0x45, 0xcd, 0x82, 0x13, 0xfb, 0x7e, 0x25, 0x5d, 0xbe, 0x45, 0x41, 0x70, 0xbc, 0x11, 0xa0
+    ]),
+    "UFIE-2018-07":  bytes([ # Update Firmware Image Encryption key; published 2021-06-20 by OGs
+        # first use on 2018-07-13; used for:
+        # WM240 FW V00.06.0000-V01.00.0670, RC240 FW V01.00.0640, WM241 FW,
+        # WM150 FW V01.01.0000, GL150 FW V01.00.0600, LT150 FW,
+        0x78, 0x09, 0x39, 0xe1, 0xbe, 0x11, 0x7a, 0x66, 0xd3, 0x58, 0x41, 0xe9, 0x5b, 0x06, 0xaa, 0xc0
+    ]),
+    "UFIE-2018-01":  bytes([ # Update Firmware Image Encryption key; published 2021-06-19 by OGs
+        # first use on 2018-01-26; used for: WM230 FW V00.02.0026-V01.00.0500,
+        # RC230 FW V01.00.0000-V01.00.0200,
+        0xcd, 0x3a, 0xa5, 0x72, 0x2a, 0x41, 0x0b, 0x6d, 0xba, 0x3d, 0xaf, 0x2e, 0x99, 0xf3, 0xd9, 0x6d
     ]),
     "SLEK":  bytes([ # Slack community Encryption Key; generated 2018-01-19 by Jan Dumon
         0x56, 0x79, 0x6C, 0x0E, 0xEE, 0x0F, 0x38, 0x05, 0x20, 0xE0, 0xBE, 0x70, 0xF2, 0x77, 0xD9, 0x0B
@@ -119,7 +159,8 @@ keys = {
     )),
     "PRAK-2018-01":  bytes.fromhex(( # PR Auth Key v2; published 2021-04-02 by Mefistotelis
         # first use on 2018-01-26; used for: WM230 FW V00.02.0032,
-        # WM150 FW V01.00.0100, GL150 V01.00.0100-V01.00.0600
+        # WM150 FW V01.00.0100, GL150 V01.00.0100-V01.00.0600,
+        # LT150 V01.00.0600
         "40000000dbe15b5badcde418e2dbd9e253d2b9aded7f187824b5677f0ee6a6c3"
         "fcd2ea329421a5b0252c63af6df81ac0c6416ec926e2558f4f4460a4b3af3ecb"
         "7fd4db4741c3602b900c495acff5f8651da895f4a60030b3be640f8382222793"
@@ -780,6 +821,7 @@ def imah_unsign(po, fwsigfile):
     # Output the chunks
     checksum_dec = 0
     num_skipped = 0
+    single_cipher = None # IMaH v1 creates a new cipher for each chunk, IMaH v2 reuses a single cipher
     for i, chunk in enumerate(chunks):
 
         chunk_fname= "{:s}_{:s}.bin".format(po.mdprefix,minames[i])
@@ -793,12 +835,19 @@ def imah_unsign(po, fwsigfile):
 
         elif crypt_key is not None: # Encrypted chunk (have key as well)
             if crypt_mode == AES.MODE_CTR:
-                init_cf = int.from_bytes(crypt_iv[12:16], byteorder='big')
-                countf = Counter.new(32, crypt_iv[:12], initial_value=init_cf)
-                cipher = AES.new(crypt_key, crypt_mode, counter=countf)
+                if single_cipher is None:
+                    init_cf = int.from_bytes(crypt_iv[12:16], byteorder='big')
+                    countf = Counter.new(32, crypt_iv[:12], initial_value=init_cf)
+                    cipher = AES.new(crypt_key, crypt_mode, counter=countf)
+                    single_cipher = cipher
+                else:
+                    cipher = single_cipher
+                dji_block_size = 32
             else:
                 cipher = AES.new(crypt_key, crypt_mode, iv=crypt_iv)
-            pad_cnt = (AES.block_size - chunk.size % AES.block_size) % AES.block_size
+                # the data is really padded to 32, but we do not care as we reset state for every chunk
+                dji_block_size = AES.block_size
+            pad_cnt = (dji_block_size - chunk.size % dji_block_size) % dji_block_size
             if (po.verbose > 0):
                 print("{}: Unpacking encrypted chunk '{:s}'...".format(fwsigfile.name,minames[i]))
             can_decrypt = True
@@ -878,6 +927,7 @@ def imah_sign(po, fwsigfile):
     crypt_key, crypt_mode, crypt_iv = imah_get_crypto_params(po, pkghead)
     # Write module data
     checksum_dec = 0
+    single_cipher = None # IMaH v1 creates a new cipher for each chunk, IMaH v2 reuses a single cipher
     payload_digest = SHA256.new()
     for i, miname in enumerate(minames):
         chunk = chunks[i]
@@ -895,9 +945,13 @@ def imah_sign(po, fwsigfile):
 
         elif crypt_key != None: # Encrypted chunk (have key as well)
             if crypt_mode == AES.MODE_CTR:
-                init_cf = int.from_bytes(crypt_iv[12:16], byteorder='big')
-                countf = Counter.new(32, crypt_iv[:12], initial_value=init_cf)
-                cipher = AES.new(crypt_key, crypt_mode, counter=countf)
+                if single_cipher is None:
+                    init_cf = int.from_bytes(crypt_iv[12:16], byteorder='big')
+                    countf = Counter.new(32, crypt_iv[:12], initial_value=init_cf)
+                    cipher = AES.new(crypt_key, crypt_mode, counter=countf)
+                    single_cipher = cipher
+                else:
+                    cipher = single_cipher
             else:
                 cipher = AES.new(crypt_key, crypt_mode, iv=crypt_iv)
             if (po.verbose > 0):
@@ -918,6 +972,12 @@ def imah_sign(po, fwsigfile):
         chunk_fname= "{:s}_{:s}.bin".format(po.mdprefix,miname)
         # Copy chunk data and compute digest
         fwitmfile = open(chunk_fname, "rb")
+        # Chunks in new formats are padded with zeros and then encrypted; for older formats,
+        # the padding rules are more convoluted, and also change slightly between platforms
+        if pkgformat >= 2018:
+            dji_block_size = 32
+        else:
+            dji_block_size = AES.block_size
         decrypted_n = 0
         while True:
             # read block limit must be a multiplication of encryption block size
@@ -927,8 +987,8 @@ def imah_sign(po, fwsigfile):
                 break
             decrypted_n += len(copy_buffer)
             # Pad the payload to AES.block_size = 16
-            if (len(copy_buffer) % AES.block_size) != 0:
-                pad_cnt = AES.block_size - (len(copy_buffer) % AES.block_size)
+            if (len(copy_buffer) % dji_block_size) != 0:
+                pad_cnt = dji_block_size - (len(copy_buffer) % dji_block_size)
                 pad_buffer = b"\0" * pad_cnt
                 copy_buffer += pad_buffer
             checksum_dec = imah_compute_checksum(po, copy_buffer, checksum_dec)
